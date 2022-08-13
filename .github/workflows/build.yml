@@ -26,4 +26,4 @@ jobs:
           aws-region: eu-central-1
       
       - name: Deploy
-        run: aws s3 sync ./dist s3://sputnik-forms/dev
+        run: aws s3 sync ./dist s3://sputnik-forms/DEV
