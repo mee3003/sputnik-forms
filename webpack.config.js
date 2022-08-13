@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
 
 const config = (env) => {
   console.log(env);
@@ -27,10 +28,10 @@ const config = (env) => {
       new CleanWebpackPlugin({
         verbose: true,
       }),
-
       new webpack.DefinePlugin({
         "process.env": JSON.stringify(env),
       }),
+      new CompressionPlugin(),
     ],
 
     output: {
