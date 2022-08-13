@@ -3,9 +3,6 @@ const webpack = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const config = (env) => {
-  console.log("Current env");
-  console.log(env);
-
   return {
     mode: "production",
     entry: path.resolve(__dirname, "./src/index"),
@@ -37,7 +34,7 @@ const config = (env) => {
 
     output: {
       filename: "main.js",
-      path: path.resolve(__dirname, "./dist"),
+      path: path.resolve(__dirname, "./dist/js"),
     },
 
     resolve: {

@@ -14,9 +14,6 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
-      - run: ./node_modules/.bin/webpack --env mode=production --env REACT_APP_TENANT=DEV
-        env:
-          mode: production
-          REACT_APP_TENANT: "DEV"
-          REACT_APP_BACKEND: ${{secrets.REACT_APP_BACKEND}}
-          REACT_APP_API_TOKEN: ${{secrets.REACT_APP_API_TOKEN}}
+      - run: ./node_modules/.bin/webpack --env mode=production --env REACT_APP_TENANT=DEV --env REACT_APP_BACKEND=${{secrets.REACT_APP_BACKEND}} REACT_APP_API_TOKEN=${{secrets.REACT_APP_API_TOKEN}}
+      - run: npm run gzip
+      - run: npm run rename

@@ -32,10 +32,12 @@
     "webpack-dev-server": "^4.9.3"
   },
   "scripts": {
-    "start1": "react-scripts start",
+    "webpack": "webpack",
+    "rename": "mv dist/main.js.gz dist/main.js",
+    "gzip": "gzipper c dist/js/main.js dist",
+    "start": "react-scripts start",
     "copy": "cp build/static/js/main*.js build/static/js/main.js",
     "build": "react-scripts build",
-    "webpack": "webpack",
     "eject": "react-scripts eject",
     "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
