@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
-      - run: npm run webpack
+      - run: ./node_modules/.bin/webpack --env mode=production --env REACT_APP_TENANT=DEV
         env:
           mode: production
           REACT_APP_TENANT: "DEV"
