@@ -1,4 +1,4 @@
-name: Deploy for tenat: DEV
+name: "Deploy for tenant: DEV"
 
 on:
   push:
