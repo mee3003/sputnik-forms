@@ -26,7 +26,7 @@
   },
   "scripts": {
     "webpack": "webpack",
-    "rename": "mv dist/js/main.js.gz dist/main.js",
+    "rename": "mkdir dist && mv build/main.js.gz dist/main.js",
     "start": "react-scripts start",
     "build": "react-scripts build"
   },
