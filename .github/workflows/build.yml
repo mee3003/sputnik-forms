@@ -3,7 +3,7 @@ name: Node.js Package
 on:
   push:
     branches:
-      - "*"
+      - "dev"
 
 jobs:
   ci-build:
@@ -11,9 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      - uses: tj-actions/branch-names@v5.4
         with:
           node-version: 16
       - run: npm ci
-      - run: ./node_modules/.bin/webpack --env mode=production --env REACT_APP_TENANT=${{steps.branch-name.outputs.current_branch}} --env REACT_APP_BACKEND=${{secrets.REACT_APP_BACKEND}} REACT_APP_API_TOKEN=${{secrets.REACT_APP_API_TOKEN}}
+      - run: ./node_modules/.bin/webpack --env mode=production --env REACT_APP_TENANT=DEV --env REACT_APP_BACKEND=${{secrets.REACT_APP_BACKEND}} REACT_APP_API_TOKEN=${{secrets.REACT_APP_API_TOKEN}}
       - run: npm run rename

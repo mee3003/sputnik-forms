@@ -24,7 +24,6 @@ const config = (env) => {
     },
 
     plugins: [
-      new webpack.HotModuleReplacementPlugin(),
       new CleanWebpackPlugin({
         verbose: true,
       }),
