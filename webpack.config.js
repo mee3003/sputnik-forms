@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const config = (env) => {
+  console.log(env);
   return {
     mode: "production",
     entry: path.resolve(__dirname, "./src/index"),
