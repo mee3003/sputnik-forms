@@ -11,17 +11,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 16
+
       - name: Configure S3
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
           aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
           aws-region: "eu-central-1"
-      - run: npm ci
-      - run: ./node_modules/.bin/webpack --env mode=production --env REACT_APP_TENANT=DEV --env REACT_APP_BACKEND=${{secrets.REACT_APP_BACKEND}} REACT_APP_API_TOKEN=${{secrets.REACT_APP_API_TOKEN}}
-      - run: npm run rename
-      - run: aws s3 sync ./dist s3://sputnik-forms/DEV
+
+      - name: Install modules
+        run: npm ci
+
+      - name: Bundle JS
+        run: ./node_modules/.bin/webpack --env mode=production --env REACT_APP_TENANT=DEV --env REACT_APP_BACKEND=${{secrets.REACT_APP_BACKEND}} REACT_APP_API_TOKEN=${{secrets.REACT_APP_API_TOKEN}}
+
+      - name: Rename gzipped filed
+        run: npm run rename
+
+      - name: Upload to aws
+        run: aws s3 sync ./dist s3://sputnik-forms/DEV
