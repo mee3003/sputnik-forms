@@ -30,7 +30,7 @@ const config = (env) => {
       new webpack.DefinePlugin({
         "process.env": JSON.stringify(env),
       }),
-      new CompressionPlugin(),
+      // new CompressionPlugin(),
     ],
 
     output: {
