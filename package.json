@@ -26,7 +26,7 @@
   },
   "scripts": {
     "webpack": "webpack",
-    "rename": "mkdir dist && mv build/main.js.gz dist/main.js && cp .template/iframe html dist/iframe.html ",
+    "rename": "mkdir dist && mv build/main.js.gz dist/main.js && cp .template/iframe.html dist/iframe.html ",
     "start": "react-scripts start",
     "build": "react-scripts build"
   },
