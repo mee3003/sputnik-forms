@@ -17,8 +17,6 @@ const App = () => {
     tenant: process.env.REACT_APP_TENANT,
   };
 
-  console.log(process.env);
-
   return (
     <ThemeProvider theme={theme}>
       <Provider store={moduleStore}>
