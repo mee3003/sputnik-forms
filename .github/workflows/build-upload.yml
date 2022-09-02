@@ -33,10 +33,10 @@ jobs:
         run: npm ci
 
       - name: Bundle JS
-        run: ./node_modules/.bin/webpack --env mode=production --env REACT_APP_TENANT=DEV --env REACT_APP_BACKEND=${{secrets.REACT_APP_BACKEND}} REACT_APP_API_TOKEN=${{secrets.REACT_APP_API_TOKEN}}
+        run: ./node_modules/.bin/webpack --env mode=production --env REACT_APP_TENANT=${{ steps.extract_branch.outputs.branch }} --env REACT_APP_BACKEND=${{secrets.REACT_APP_BACKEND}} REACT_APP_API_TOKEN=${{secrets.REACT_APP_API_TOKEN}}
 
       - name: Rename gzipped file
         run: npm run rename
 
       - name: Upload to aws
-        run: aws s3 sync ./dist s3://sputnik-forms/DEV
+        run: aws s3 sync ./dist s3://sputnik-forms/${{ steps.extract_branch.outputs.branch }}
