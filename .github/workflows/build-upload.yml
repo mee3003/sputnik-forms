@@ -1,4 +1,4 @@
-name: "Deploy new fomrs version, do not forget to change encoding"
+name: "Deploy new forms version, do not forget to change encoding"
 
 on:
   push:
