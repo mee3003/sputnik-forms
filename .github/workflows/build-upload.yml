@@ -1,9 +1,9 @@
-name: "Deploy for tenant: DEV"
+name: "Deploy new fomrs version, do not forget to change encoding"
 
 on:
   push:
-    branches:
-      - "*"
+    branches-ignore:    
+      - 'feat/**'
 
 jobs:
   ci-build-upload:
