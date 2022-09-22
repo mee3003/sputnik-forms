@@ -34,10 +34,10 @@ jobs:
 
       - name: Bundle JS
         env:
-          REACT_APP_BACKEND=${{secrets.REACT_APP_BACKEND}}
-          REACT_APP_GAPI_KEY=${{secrets.REACT_APP_GAPI_KEY}}
-          REACT_APP_POOL_ID=${{secrets.REACT_APP_POOL_ID}}
-          REACT_APP_TENANT=${{steps.extract_branch.outputs.branch}}
+          REACT_APP_BACKEND: ${{secrets.REACT_APP_BACKEND}}
+          REACT_APP_GAPI_KEY: ${{secrets.REACT_APP_GAPI_KEY}}
+          REACT_APP_POOL_ID: ${{secrets.REACT_APP_POOL_ID}}
+          REACT_APP_TENANT: ${{steps.extract_branch.outputs.branch}}
 
         run: ./node_modules/.bin/webpack 
 
