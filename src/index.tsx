@@ -13,8 +13,9 @@ const theme = createTheme({
 const App = () => {
   const moduleProps = {
     backendUrl: process.env.REACT_APP_BACKEND,
-    token: process.env.REACT_APP_API_TOKEN,
+    gapiKey: process.env.REACT_APP_GAPI_KEY,
     tenant: process.env.REACT_APP_TENANT,
+    awsUploadPoolId: process.env.REACT_APP_POOL_ID,
   };
 
   return (
