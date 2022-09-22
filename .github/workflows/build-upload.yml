@@ -33,7 +33,7 @@ jobs:
         run: npm ci
 
       - name: Bundle JS
-        run: ./node_modules/.bin/webpack --env mode=production REACT_APP_TENANT=${{ steps.extract_branch.outputs.branch }} REACT_APP_BACKEND=${{secrets.REACT_APP_BACKEND}} REACT_APP_API_TOKEN=${{secrets.REACT_APP_API_TOKEN}} REACT_APP_GAPI_KEY={{secrets.REACT_APP_GAPI_KEY}} REACT_APP_POOL_ID={{secrets.REACT_APP_POOL_ID}}
+        run: ./node_modules/.bin/webpack --env mode=production REACT_APP_TENANT=${{ steps.extract_branch.outputs.branch }} REACT_APP_BACKEND=${{ secrets.REACT_APP_BACKEND }} REACT_APP_API_TOKEN=${{ secrets.REACT_APP_API_TOKEN }} REACT_APP_GAPI_KEY={{ secrets.REACT_APP_GAPI_KEY }} REACT_APP_POOL_ID={{ secrets.REACT_APP_POOL_ID }}
 
       - name: Rename gzipped file
         run: npm run rename
