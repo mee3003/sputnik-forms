@@ -3,12 +3,10 @@ import ReactDOM from "react-dom/client";
 //@ts-ignore
 import { Module, moduleStore } from "relocation-forms/es";
 
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import { Provider } from "react-redux";
 
-const theme = createTheme({
-  palette: { primary: { main: "#2e69ff" } },
-});
+import themes from "./themes";
 
 const App = () => {
   const moduleProps = {
@@ -17,6 +15,9 @@ const App = () => {
     tenant: process.env.REACT_APP_TENANT,
     awsUploadPoolId: process.env.REACT_APP_POOL_ID,
   };
+
+  //@ts-ignore
+  const theme = themes[process.env.REACT_APP_TENANT];
 
   return (
     <ThemeProvider theme={theme}>
