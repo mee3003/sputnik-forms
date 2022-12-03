@@ -1,9 +1,9 @@
 import steinumz from "./steinumzTheme";
 import dev from "./devTheme";
-import ruckzuck from "./ruckzuckTheme";
+import urz from "./urzTheme";
 
 export default {
   STEINUMZ: steinumz,
   DEV: dev,
-  RUCKZUCK: ruckzuck,
+  URZ: urz,
 };
